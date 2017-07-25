@@ -16,14 +16,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.xiyou3g.playxiyou.Adapter.ScoreAdapter;
 import com.example.xiyou3g.playxiyou.Adapter.ScoreTeamAdapter;
+import com.example.xiyou3g.playxiyou.DataBean.ProjectBean;
 import com.example.xiyou3g.playxiyou.DataBean.ScoreYearAndTeam;
+import com.example.xiyou3g.playxiyou.HttpRequest.GetProjectData;
+import com.example.xiyou3g.playxiyou.HttpRequest.GetScoreData;
 import com.example.xiyou3g.playxiyou.R;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import static com.example.xiyou3g.playxiyou.Content.EduContent.*;
 
 /**
@@ -54,7 +70,6 @@ public class ScoreFragment extends Fragment {
         dialog.setCanceledOnTouchOutside(false);
         dialog.setMessage("正在努力加载...");
         dialog.show();
-
     }
 
     @Nullable
@@ -134,9 +149,10 @@ public class ScoreFragment extends Fragment {
         current = (TextView) view.findViewById(R.id.score_time);
         isData = (TextView) view.findViewById(R.id.score_tv);
 
+        current.setText(currentScore);
+
         if(stuname.equals("null")){
             isData.setVisibility(View.VISIBLE);
-            current.setText(currentScore);
         }else{
             linearLayoutManager1 = new LinearLayoutManager(getContext());
             linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -146,7 +162,6 @@ public class ScoreFragment extends Fragment {
             linearLayoutManager2.setOrientation(LinearLayoutManager.VERTICAL);
             scoreRecyc.setLayoutManager(linearLayoutManager2);
 
-            current.setText(currentScore);
             scoreTeamAdapter = new ScoreTeamAdapter(yearList);
             scoreTeamRecyc.setAdapter(scoreTeamAdapter);
 

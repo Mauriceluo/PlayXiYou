@@ -21,11 +21,13 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.xiyou3g.playxiyou.HttpRequest.GetCourseData;
+import com.example.xiyou3g.playxiyou.HttpRequest.GetScoreData;
 import com.example.xiyou3g.playxiyou.R;
 
 import java.util.Calendar;
 
 import static com.example.xiyou3g.playxiyou.Content.EduContent.*;
+import static com.example.xiyou3g.playxiyou.Content.EduContent.sYear;
 
 /**
  * Created by Lance on 2017/7/12.
@@ -68,6 +70,11 @@ public class CourseFragment extends Fragment implements View.OnClickListener{
             R.drawable.course_item_4,R.drawable.course_item_5,R.drawable.course_item_6,R.drawable.course_item_7,
             R.drawable.course_item_8,R.drawable.course_item_9,R.drawable.course_item_10};
 
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

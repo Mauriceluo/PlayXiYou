@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.chaychan.viewlib.NumberRunningTextView;
+import com.example.xiyou3g.playxiyou.HttpRequest.GetMajorData;
 import com.example.xiyou3g.playxiyou.R;
 import static com.example.xiyou3g.playxiyou.Content.EduContent.*;
 
@@ -97,6 +98,13 @@ public class MajorFragment extends Fragment {
             progressDialog.setMessage("正在努力加载...");
             progressDialog.show();
             flag = 1;
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    new GetMajorData().run();
+                }
+            },800);
         }
     }
 

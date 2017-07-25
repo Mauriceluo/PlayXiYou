@@ -51,7 +51,12 @@ public class ScoreTeamAdapter extends RecyclerView.Adapter<ScoreTeamAdapter.View
                 Message message = new Message();
                 message.what = 4;
                 handler.sendMessage(message);
-                new GetScoreData(year.getYear(),year.getTeam()).run();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        new GetScoreData(year.getYear(),year.getTeam()).run();
+                    }
+                },2000);
             }
         });
 

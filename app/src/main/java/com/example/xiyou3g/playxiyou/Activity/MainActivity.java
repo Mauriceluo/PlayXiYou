@@ -57,47 +57,23 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private FrameLayout frameLayout;
     private BottomNavigationBar bottomNavigationBar;
 
-    private String sYear;
-    private String sTeam;
-
+    private String Year;
+    private String Team;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         initWight();
 
-        List<String> list = new ArrayList<>();
-        list = getVisState(list);                   //获取培养计划的头_VISTSTE;
-        getAllProject(list);                        //获取全部培养计划信息;
-
+        getCurrentYearAndTeam();                                              //获取当前的学年与学期;
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                getCurrentYearAndTeam();                    //获取当前的学年与学期;
-                new Thread(new GetScoreData(sYear,sTeam)).start();  //获取成绩信息;
+                ViewStatelist = getVisState(ViewStatelist);                   //获取培养计划的头_VISTSTE;
+                new Thread(new GetScoreData(Year,Team)).start();              //获取成绩信息;
             }
-        },500);
-    }
+        },1000);
 
-    private void getCurrentYearAndTeam() {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH)+1;
-        int team;
-        int startYear;
-        int endYear;
-        if(month >= 7){
-            startYear = year -1;
-            endYear = year;
-            team = 2;
-        }else{
-            startYear = year -1;
-            endYear = year;
-            team = 1;
-        }
-        sYear = startYear+"-"+endYear;
-        sTeam = team+"";
-        currentScore = sYear+"   第"+sTeam+"学期";
     }
 
     private List<String> getVisState(final List<String> list) {
@@ -143,12 +119,25 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         return list;
     }
 
-    private void getAllProject(List<String> list) {
-        for(int i =1;i<=8;i++){
-            List<ProjectBean> projectBeen = new ArrayList<>();
-            proList.add(projectBeen);
-            new Thread(new GetProjectData(i,list)).start();
+    private void getCurrentYearAndTeam() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH)+1;
+        int team;
+        int startYear;
+        int endYear;
+        if(month >= 7){
+            startYear = year -1;
+            endYear = year;
+            team = 2;
+        }else{
+            startYear = year -1;
+            endYear = year;
+            team = 1;
         }
+        Year = startYear+"-"+endYear;
+        Team = team+"";
+        currentScore = Year+"   第"+Team+"学期";
     }
 
     private void getCurrentCourse() {
@@ -176,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .setFirstSelectedPosition(0)
                 .setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationBar.initialise();
-        bottomNavigationBar.setPadding(10,2,2,2);
+        bottomNavigationBar.setPadding(0,10,0,0);
         bottomNavigationBar.setTabSelectedListener(this);
         replaceFragment(new EduFragment());
     }
@@ -198,11 +187,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 replaceFragment(new SportFragment());
                 break;
             case 2:
-                if(islogin == 0){
+//                if(islogin == 0){
                     replaceFragment(new AttendUnlogFragment());
-                }else{
-                    replaceFragment(new AttendLogFragment());
-                }
+//                }else{
+//                    replaceFragment(new AttendLogFragment());
+//                }
                 break;
             case 3:
                 replaceFragment(new MeFragment());

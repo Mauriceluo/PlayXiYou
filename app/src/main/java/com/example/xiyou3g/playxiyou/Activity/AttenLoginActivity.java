@@ -143,15 +143,15 @@ public class AttenLoginActivity extends AppCompatActivity implements View.OnClic
                                         editor.clear();
                                     }
                                     editor.apply();
-                                    Message message = new Message();
-                                    message.what = 11;
-                                    attenHandler.sendMessage(message);
+//                                    Message message = new Message();
+//                                    message.what = 11;
+//                                    attenHandler.sendMessage(message);
 
                                     handler.postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
-//                                            Intent intent = new Intent(AttenLoginActivity.this,AttendActivity.class);
-//                                            startActivity(intent);
+                                            Intent intent = new Intent(AttenLoginActivity.this,AttendActivity.class);
+                                            startActivity(intent);
                                             finish();
                                         }
                                     },500);

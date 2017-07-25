@@ -1,5 +1,6 @@
 package com.example.xiyou3g.playxiyou.HttpRequest;
 
+import android.os.Message;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -60,6 +61,7 @@ public class GetProjectData implements Runnable {
                         projectBean.setCgpa(td.get(3).text());
                         projectBean.setCteam(td.get(4).text());
                         proList.get(team-1).add(projectBean);
+
                     }
                 }
             }, new Response.ErrorListener() {
@@ -82,7 +84,7 @@ public class GetProjectData implements Runnable {
 
                 @Override
                 public byte[] getBody() throws AuthFailureError {
-                    return ("__EVENTTARGET=xq&__EVENTARGUMENT=&__VIEWSTATE="+list.get(0)+"&xq="+team+"&kcxz=%C8%AB%B2%BF&dpDBGrid%3AtxtChoosePage=1&dpDBGrid%3AtxtPageSize=15").getBytes();
+                    return ("__EVENTTARGET=xq&__EVENTARGUMENT=&__VIEWSTATE="+list.get(0)+"&xq="+team+"&kcxz=%C8%AB%B2%BF&dpDBGrid%3AtxtChoosePage=1&dpDBGrid%3AtxtPageSize=20").getBytes();
                 }
             };
             mqueue.add(stringRequest);
