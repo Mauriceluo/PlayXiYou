@@ -1,6 +1,7 @@
 package com.example.xiyou3g.playxiyou.Activity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -252,8 +253,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     protected Response<String> parseNetworkResponse(NetworkResponse response) {
                         System.out.println(response.headers);
-                        Log.e("statusCode",response.statusCode+"   length="+response.headers.size());
-                        if(response.headers.size() == 13){
+                        Log.e("statusCode",response.statusCode+"   length="+response.data.length);
+                        if(response.data.length > 7000){
                             flag = 1;
                         }
                         return super.parseNetworkResponse(response);

@@ -52,4 +52,5 @@ public class EduContent {
 
     static public List<List<ProjectBean>> proList = new ArrayList<>();
     static public List<MajorBean> majorBeanList = new ArrayList<>();
+    static public List<String> ViewStatelist = new ArrayList<>();
 }

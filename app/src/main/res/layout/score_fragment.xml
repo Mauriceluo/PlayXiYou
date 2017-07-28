@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/score_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#f0f0f0">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/select_team_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            app:layout_scrollFlags="scroll|enterAlways|snap">
-
-        </android.support.v7.widget.RecyclerView>
-
-    </android.support.design.widget.AppBarLayout>
 
 
     <LinearLayout
@@ -27,13 +13,29 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:background="#f0f0f0">
 
-        <TextView
-            android:id="@+id/score_time"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:background="#fff"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/score_time"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="#fff" />
+
+            <ImageView
+                android:id="@+id/bttest"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@mipmap/selectteam"
+                android:background="#fff"/>
+
+        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/score_recycler"

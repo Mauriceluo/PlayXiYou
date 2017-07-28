@@ -41,6 +41,7 @@ public class GetScoreData implements Runnable {
 
     private void get_Score(){
        synchronized (this){
+
            scoreBeanList.clear();
            final String[] __viewstate = new String[1];
            final String url = "http://222.24.62.120/xscjcx.aspx?xh="+loginName+"&xm="+student_name+"&gnmkdm=N121605";
@@ -131,7 +132,7 @@ public class GetScoreData implements Runnable {
                    };
                    mqueue.add(stringRequest);
                }
-           },800);
+           },1500);
        }
     }
 }

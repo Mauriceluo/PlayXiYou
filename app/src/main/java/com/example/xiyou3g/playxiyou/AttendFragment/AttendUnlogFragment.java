@@ -37,17 +37,18 @@ public class AttendUnlogFragment extends Fragment implements View.OnClickListene
         view = LayoutInflater.from(getContext()).inflate(R.layout.atten_unlogin_fragment,container,false);
         initWight(view);
 
-        attenHandler = new Handler(){
-            @Override
-            public void handleMessage(Message msg) {
-                switch (msg.what){
-                    case 11:
-                        Log.e("exitsuccess","alogin");
-                        replaceFragment(new AttendLogFragment());
-                        break;
-                }
-            }
-        };
+//        attenHandler = new Handler(){
+//            @Override
+//            public void handleMessage(Message msg) {
+//                switch (msg.what){
+//                    case 11:
+//                        onDestroy();
+//                        Log.e("loginsuccess","alogin");
+//                        replaceFragment(new AttendLogFragment());
+//                        break;
+//                }
+//            }
+//        };
         return view;
     }
 

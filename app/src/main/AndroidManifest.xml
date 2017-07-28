@@ -20,7 +20,8 @@
         <activity android:name=".Activity.PersInfoActivity"/>
         <activity android:name=".Activity.AttenLoginActivity"/>
         <activity android:name=".Activity.AttendActivity"/>
-        <activity android:name=".Activity.SiliuActivity" />
+        <activity android:name=".Activity.SiliuActivity"
+            android:windowSoftInputMode="stateAlwaysVisible"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

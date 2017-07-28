@@ -14,21 +14,58 @@
         android:textColor="@color/weeks"
         android:background="@color/days"/>
 
-    <com.example.xiyou3g.playxiyou.MyView.RoundImageView
+    <LinearLayout
         android:id="@+id/logo"
-        android:layout_below="@id/tv1"
         android:layout_marginTop="10dp"
-        android:layout_width="60dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/shu"
-        app:imageType="round"
-        app:borderRadius="270dp"/>
+        android:orientation="horizontal"
+        android:layout_below="@id/tv1">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.example.xiyou3g.playxiyou.MyView.RoundImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:src="@drawable/mobile"
+                app:imageType="round"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                app:borderRadius="270dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.example.xiyou3g.playxiyou.MyView.RoundImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:src="@drawable/shu"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                app:imageType="round"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="5dp"
+                app:borderRadius="270dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/lin1"
         android:layout_below="@id/logo"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal"
