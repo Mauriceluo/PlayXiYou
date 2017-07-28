@@ -19,13 +19,37 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+<<<<<<< HEAD
+=======
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
 import com.example.xiyou3g.playxiyou.Adapter.ScoreAdapter;
 import com.example.xiyou3g.playxiyou.Adapter.ScoreTeamAdapter;
+import com.example.xiyou3g.playxiyou.DataBean.ProjectBean;
 import com.example.xiyou3g.playxiyou.DataBean.ScoreYearAndTeam;
+import com.example.xiyou3g.playxiyou.HttpRequest.GetProjectData;
+import com.example.xiyou3g.playxiyou.HttpRequest.GetScoreData;
 import com.example.xiyou3g.playxiyou.R;
+<<<<<<< HEAD
+=======
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import static com.example.xiyou3g.playxiyou.Content.EduContent.*;
 
 /**
@@ -144,9 +168,12 @@ public class ScoreFragment extends Fragment {
         current = (TextView) view.findViewById(R.id.score_time);
         isData = (TextView) view.findViewById(R.id.score_tv);
 
+<<<<<<< HEAD
         bselect = (ImageView) view.findViewById(R.id.bttest);
         main_layout = (CoordinatorLayout) view.findViewById(R.id.score_layout);
 
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
         current.setText(currentScore);
 
         if(stuname.equals("null")){
@@ -160,8 +187,13 @@ public class ScoreFragment extends Fragment {
             linearLayoutManager2.setOrientation(LinearLayoutManager.VERTICAL);
             scoreRecyc.setLayoutManager(linearLayoutManager2);
 
+<<<<<<< HEAD
 //            scoreTeamAdapter = new ScoreTeamAdapter(yearList);
 //            scoreTeamRecyc.setAdapter(scoreTeamAdapter);
+=======
+            scoreTeamAdapter = new ScoreTeamAdapter(yearList);
+            scoreTeamRecyc.setAdapter(scoreTeamAdapter);
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
 
             scoreAdapter = new ScoreAdapter(scoreBeanList);
             scoreRecyc.setAdapter(scoreAdapter);
