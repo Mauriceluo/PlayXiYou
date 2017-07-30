@@ -16,7 +16,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+<<<<<<< HEAD
 import android.widget.ImageView;
+=======
+<<<<<<< HEAD
+import android.widget.ImageView;
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,7 +32,14 @@ import com.example.xiyou3g.playxiyou.Activity.MainActivity;
 import com.example.xiyou3g.playxiyou.Activity.PersInfoActivity;
 import com.example.xiyou3g.playxiyou.Activity.SiliuActivity;
 import com.example.xiyou3g.playxiyou.Adapter.HelpAdapter;
+<<<<<<< HEAD
 import com.example.xiyou3g.playxiyou.Adapter.QueAdpater;
+=======
+<<<<<<< HEAD
+import com.example.xiyou3g.playxiyou.Adapter.QueAdpater;
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
 import com.example.xiyou3g.playxiyou.EduFragment.EduFragment;
 import com.example.xiyou3g.playxiyou.R;
 
@@ -130,7 +144,18 @@ public class MeFragment extends Fragment implements View.OnClickListener{
             case R.id.siliu:
                 Intent intent1 = new Intent(getContext(), SiliuActivity.class);
                 startActivity(intent1,ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+<<<<<<< HEAD
                 break;
+=======
+                break;
+<<<<<<< HEAD
+=======
+            case R.id.siliu:
+                Intent intent1 = new Intent(getContext(), SiliuActivity.class);
+                startActivity(intent1,ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                break;
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
             case R.id.help:
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext());
                 View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.help_dialog,null);

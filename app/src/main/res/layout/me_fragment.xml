@@ -137,6 +137,38 @@
 
             </LinearLayout>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="35dp"
+                    android:src="@mipmap/siliu"
+                    android:layout_marginLeft="18dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/siliu"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:text="四六级查询"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:textColor="#404040"/>
+
+            </LinearLayout>
+
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
 
                 <TextView
                 android:layout_width="match_parent"

@@ -49,8 +49,16 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
     private EditText name;
     private TextView figure;
     private Button find;
+<<<<<<< HEAD
 
     private ImageView clear;
+=======
+<<<<<<< HEAD
+
+    private ImageView clear;
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,9 +80,18 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
         find = (Button) findViewById(R.id.siliu_find);
         figure = (TextView) findViewById(R.id.figure);
         back = (ImageView) findViewById(R.id.sback);
+<<<<<<< HEAD
         clear = (ImageView) findViewById(R.id.clear);
 
         clear.setOnClickListener(this);
+=======
+<<<<<<< HEAD
+        clear = (ImageView) findViewById(R.id.clear);
+
+        clear.setOnClickListener(this);
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
 
         id.addTextChangedListener(new TextWatcher() {
             @Override
@@ -84,6 +101,10 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
                 if(s.length()>0){
                     clear.setVisibility(View.VISIBLE);
                     AlphaAnimation alphaAnimation = new AlphaAnimation(0,1.0f);
@@ -96,6 +117,11 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
                     clear.setVisibility(View.GONE);
                 }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
                 if(idWrapper.getEditText().getText().length() != 15){
                     figure.setTextColor(Color.RED);
                 }else{
@@ -159,9 +185,18 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
             case R.id.sback:
                 finish();
                 break;
+<<<<<<< HEAD
             case R.id.clear:
                 id.setText("");
                 break;
+=======
+<<<<<<< HEAD
+            case R.id.clear:
+                id.setText("");
+                break;
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
 
         }
     }

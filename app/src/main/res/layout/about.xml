@@ -49,7 +49,11 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+<<<<<<< HEAD
                 android:src="@drawable/authorlogo"
+=======
+                android:src="@drawable/shu"
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true"
                 app:imageType="round"
