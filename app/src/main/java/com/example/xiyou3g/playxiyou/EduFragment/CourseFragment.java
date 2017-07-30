@@ -21,11 +21,13 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.xiyou3g.playxiyou.HttpRequest.GetCourseData;
+import com.example.xiyou3g.playxiyou.HttpRequest.GetScoreData;
 import com.example.xiyou3g.playxiyou.R;
 
 import java.util.Calendar;
 
 import static com.example.xiyou3g.playxiyou.Content.EduContent.*;
+import static com.example.xiyou3g.playxiyou.Content.EduContent.sYear;
 
 /**
  * Created by Lance on 2017/7/12.
@@ -68,6 +70,11 @@ public class CourseFragment extends Fragment implements View.OnClickListener{
             R.drawable.course_item_4,R.drawable.course_item_5,R.drawable.course_item_6,R.drawable.course_item_7,
             R.drawable.course_item_8,R.drawable.course_item_9,R.drawable.course_item_10};
 
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -135,7 +142,16 @@ public class CourseFragment extends Fragment implements View.OnClickListener{
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH)+1;
-        if(month>=9){
+        if(month>=8 && month <9){
+            team1.setText(year+"-"+(year+1)+" 第一学期");
+            team2.setText((year-1)+"-"+year+" 第二学期");
+            startYear1 = year;
+            endYear1 = year+1;
+            iteam1 = 1;
+            startYear2 = year-1;
+            endYear2 = year;
+            iteam2 = 2;
+        }else if(month >= 9){
             team2.setText(year+"-"+(year+1)+" 第一学期");
             team1.setText((year-1)+"-"+year+" 第二学期");
             startYear2 = year;
@@ -144,7 +160,7 @@ public class CourseFragment extends Fragment implements View.OnClickListener{
             startYear1 = year-1;
             endYear1 = year;
             iteam1 = 2;
-        }else if(month>=3 && month<9){
+        }else if(month>=3 && month<8){
             team2.setText((year -1)+"-"+year+" 第二学期");
             team1.setText((year - 1)+"-"+year+" 第一学期");
             startYear2 = year-1;
@@ -222,11 +238,10 @@ public class CourseFragment extends Fragment implements View.OnClickListener{
                     }
                 });
                 fl.addView(tv);
-
                 container.addView(fl);
             }
             x++;
-            if(x % 5 == 0){
+            if(x % 7 == 0){
                 y++;
                 x = 0;
             }
@@ -397,6 +412,7 @@ public class CourseFragment extends Fragment implements View.OnClickListener{
                 }
                 break;
             case R.id.team1:
+                Log.e("click","team1");
                 courseList.clear();
                 container.removeAllViews();
                 new Thread(new GetCourseData(startYear1,endYear1,iteam1,0)).start();
@@ -412,6 +428,7 @@ public class CourseFragment extends Fragment implements View.OnClickListener{
                 },500);
                 break;
             case R.id.team2:
+                Log.e("click","team2");
                 courseList.clear();
                 container.removeAllViews();
                 new Thread(new GetCourseData(startYear2,endYear2,iteam2,1)).start();

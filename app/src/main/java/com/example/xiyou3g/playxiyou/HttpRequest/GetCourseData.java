@@ -104,15 +104,18 @@ public class GetCourseData implements Runnable {
                 StringRequest request = new StringRequest(Request.Method.GET,url , new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-
                         Document document = Jsoup.parse(s);
                         Elements tr = document.getElementsByTag("tr");
-                        for(int i = 4;i<tr.size()-16;i=i+2){
+                        for(int i = 4;i<tr.size()-12;i=i+2){
                             Elements td = tr.get(i).getElementsByTag("td");
                             if(i==4||i==8||i==12){
-                                for(int j = 2;j<td.size()-2;j++){
+                                for(int j = 2;j<td.size();j++){
                                     Elements td1 = td.get(j).getElementsByTag("td");
-                                    if((td1.get(0)+"").length()>200){
+
+                                    if((td1.get(0)+"").length()>60){
+
+                                        Log.e("courese content"+td1.get(0).toString().length()+":",td1.get(0).toString());
+
                                         String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
                                         String[] b = a.split(">");
                                         String[] c = b[1].split("<");
@@ -130,55 +133,24 @@ public class GetCourseData implements Runnable {
                                         Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
                                         courseBean.setcColor(isExists(courseBean.getcName()));
                                         courseList.add(courseBean);
-                                    } else if((td1.get(0)+"").length()>80){
-                                        String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
-                                        String[] b = a.split(">");
-                                        String[] c = b[1].split("<");
-                                        String course_name = c[0];
-                                        String[] d = b[3].split("<");
-                                        String course_teacher ="@"+ d[0];
-                                        String[] e = b[4].split("<");
-                                        String course_place = e[0];
-                                        String infor = course_name+"\n"+course_teacher+"\n"+course_place;
-                                        Log.e("view66666666666666",infor);
-                                        CourseBean courseBean = new CourseBean();
-                                        courseBean.setcName(course_name);
-                                        courseBean.setcTeacher(course_teacher);
-                                        courseBean.setcPlace(course_place);
-                                        Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
-                                        courseBean.setcColor(isExists(courseBean.getcName()));
-                                        courseList.add(courseBean);
-                                    }else if((td1.get(0)+"").length() > 50){
-                                        String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
-                                        String[] b = a.split(">");
-                                        String[] c = b[1].split("<");
-                                        String course_name = c[0];
-                                        String[] d = b[3].split("<");
-                                        String course_teacher = "@"+ d[0];
-                                        String course_place = " ";
-                                        String infor = course_name+"\n"+course_teacher+"\n"+course_place;
-                                        Log.e("view66666666666666",infor);
-                                        CourseBean courseBean = new CourseBean();
-                                        courseBean.setcName(course_name);
-                                        courseBean.setcTeacher(course_teacher);
-                                        courseBean.setcPlace(course_place);
-                                        Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
-                                        courseBean.setcColor(isExists(courseBean.getcName()));
-                                        courseList.add(courseBean);
-                                    }else{
+                                    } else{
+
+                                        Log.e("courese content"+td1.get(0).toString().length()+":",td1.get(0).toString());
+
                                         CourseBean courseBean = new CourseBean();
                                         courseBean.setcName("");
                                         courseBean.setcTeacher("");
                                         courseBean.setcPlace("");
                                         courseList.add(courseBean);
                                     }
-
                                 }
                             }else{
-                                for(int j = 1;j<td.size()-2;j++){
+                                for(int j = 1;j<td.size();j++){
                                     Elements td1 = td.get(j).getElementsByTag("td");
-                                    if((td1.get(0)+"").length()>200){
-//                                Log.e("view", (td1.get(0) + "").substring(25, (td1.get(0) + "").length() / 4+30));
+                                    if((td1.get(0)+"").length()>60){
+
+                                        Log.e("courese content"+td1.get(0).toString().length()+":",td1.get(0).toString());
+
                                         String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
                                         String[] b = a.split(">");
                                         String[] c = b[1].split("<");
@@ -196,60 +168,25 @@ public class GetCourseData implements Runnable {
                                         Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
                                         courseBean.setcColor(isExists(courseBean.getcName()));
                                         courseList.add(courseBean);
-                                    } else if((td1.get(0)+"").length()>80){
-//                                Log.e("view",(td1.get(0)+"").substring(25, (td1.get(0) + "").length() / 2+15));
-                                        String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
-                                        String[] b = a.split(">");
-                                        String[] c = b[1].split("<");
-                                        String course_name = c[0];
-                                        String[] d = b[3].split("<");
-                                        String course_teacher ="@"+ d[0];
-                                        String[] e = b[4].split("<");
-                                        String course_place = e[0];
-                                        String infor = course_name+"\n"+course_teacher+"\n"+course_place;
-                                        Log.e("view66666666666666",infor);
-                                        CourseBean courseBean = new CourseBean();
-                                        courseBean.setcName(course_name);
-                                        courseBean.setcTeacher(course_teacher);
-                                        courseBean.setcPlace(course_place);
-                                        Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
-                                        courseBean.setcColor(isExists(courseBean.getcName()));
-                                        courseList.add(courseBean);
-                                    }else if((td1.get(0)+"").length() > 50){
-//                                Log.e("view",(td1.get(0) + "").substring(25,(td1.get(0)+"").length()));
-                                        String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
-                                        String[] b = a.split(">");
-                                        String[] c = b[1].split("<");
-                                        String course_name = c[0];
-                                        String[] d = b[3].split("<");
-                                        String course_teacher = "@"+ d[0];
-                                        String course_place = " ";
-                                        String infor = course_name+"\n"+course_teacher+"\n"+course_place;
-                                        Log.e("view66666666666666",infor);
-                                        CourseBean courseBean = new CourseBean();
-                                        courseBean.setcName(course_name);
-                                        courseBean.setcTeacher(course_teacher);
-                                        courseBean.setcPlace(course_place);
-                                        Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
-                                        courseBean.setcColor(isExists(courseBean.getcName()));
-                                        courseList.add(courseBean);
-                                    }else{
+                                    } else{
+
+                                        Log.e("courese content"+td1.get(0).toString().length()+":",td1.get(0).toString());
+
                                         CourseBean courseBean = new CourseBean();
                                         courseBean.setcName("");
                                         courseBean.setcTeacher("");
                                         courseBean.setcPlace("");
                                         courseList.add(courseBean);
                                     }
-
                                 }
                             }
                         }
 
                         course_content = document.getElementsByTag("tr").text();
                         Log.e("Content:",course_content);
-                        Message message = new Message();
-                        message.what = UPDATE_COURSE;
-                        handler.sendMessage(message);
+//                        Message message = Message.obtain();
+//                        message.what = UPDATE_COURSE;
+//                        handler.sendMessage(message);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -283,12 +220,16 @@ public class GetCourseData implements Runnable {
                         // repsone_content = s;
                         Document document = Jsoup.parse(s);
                         Elements tr = document.getElementsByTag("tr");
-                        for(int i = 4;i<tr.size()-16;i=i+2){
+                        for(int i = 4;i<tr.size()-12;i=i+2){
                             Elements td = tr.get(i).getElementsByTag("td");
                             if(i==4||i==8||i==12){
-                                for(int j = 2;j<td.size()-2;j++){
+                                for(int j = 2;j<td.size();j++){
                                     Elements td1 = td.get(j).getElementsByTag("td");
-                                    if((td1.get(0)+"").length()>200){
+
+                                    if((td1.get(0)+"").length()>60){
+
+                                        Log.e("courese content"+td1.get(0).toString().length()+":",td1.get(0).toString());
+
                                         String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
                                         String[] b = a.split(">");
                                         String[] c = b[1].split("<");
@@ -306,42 +247,10 @@ public class GetCourseData implements Runnable {
                                         Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
                                         courseBean.setcColor(isExists(courseBean.getcName()));
                                         courseList.add(courseBean);
-                                    } else if((td1.get(0)+"").length()>80){
-                                        String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
-                                        String[] b = a.split(">");
-                                        String[] c = b[1].split("<");
-                                        String course_name = c[0];
-                                        String[] d = b[3].split("<");
-                                        String course_teacher ="@"+ d[0];
-                                        String[] e = b[4].split("<");
-                                        String course_place = e[0];
-                                        String infor = course_name+"\n"+course_teacher+"\n"+course_place;
-                                        Log.e("view66666666666666",infor);
-                                        CourseBean courseBean = new CourseBean();
-                                        courseBean.setcName(course_name);
-                                        courseBean.setcTeacher(course_teacher);
-                                        courseBean.setcPlace(course_place);
-                                        Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
-                                        courseBean.setcColor(isExists(courseBean.getcName()));
-                                        courseList.add(courseBean);
-                                    }else if((td1.get(0)+"").length() > 50){
-                                        String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
-                                        String[] b = a.split(">");
-                                        String[] c = b[1].split("<");
-                                        String course_name = c[0];
-                                        String[] d = b[3].split("<");
-                                        String course_teacher = "@"+ d[0];
-                                        String course_place = " ";
-                                        String infor = course_name+"\n"+course_teacher+"\n"+course_place;
-                                        Log.e("view66666666666666",infor);
-                                        CourseBean courseBean = new CourseBean();
-                                        courseBean.setcName(course_name);
-                                        courseBean.setcTeacher(course_teacher);
-                                        courseBean.setcPlace(course_place);
-                                        Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
-                                        courseBean.setcColor(isExists(courseBean.getcName()));
-                                        courseList.add(courseBean);
-                                    }else{
+                                    } else{
+
+                                        Log.e("courese content"+td1.get(0).toString().length()+":",td1.get(0).toString());
+
                                         CourseBean courseBean = new CourseBean();
                                         courseBean.setcName("");
                                         courseBean.setcTeacher("");
@@ -350,10 +259,12 @@ public class GetCourseData implements Runnable {
                                     }
                                 }
                             }else{
-                                for(int j = 1;j<td.size()-2;j++){
+                                for(int j = 1;j<td.size();j++){
                                     Elements td1 = td.get(j).getElementsByTag("td");
-                                    if((td1.get(0)+"").length()>200){
-//                                Log.e("view", (td1.get(0) + "").substring(25, (td1.get(0) + "").length() / 4+30));
+                                    if((td1.get(0)+"").length()>60){
+
+                                        Log.e("courese content"+td1.get(0).toString().length()+":",td1.get(0).toString());
+
                                         String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
                                         String[] b = a.split(">");
                                         String[] c = b[1].split("<");
@@ -371,51 +282,16 @@ public class GetCourseData implements Runnable {
                                         Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
                                         courseBean.setcColor(isExists(courseBean.getcName()));
                                         courseList.add(courseBean);
-                                    } else if((td1.get(0)+"").length()>80){
-//                                Log.e("view",(td1.get(0)+"").substring(25, (td1.get(0) + "").length() / 2+15));
-                                        String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
-                                        String[] b = a.split(">");
-                                        String[] c = b[1].split("<");
-                                        String course_name = c[0];
-                                        String[] d = b[3].split("<");
-                                        String course_teacher ="@"+ d[0];
-                                        String[] e = b[4].split("<");
-                                        String course_place = e[0];
-                                        String infor = course_name+"\n"+course_teacher+"\n"+course_place;
-                                        Log.e("view66666666666666",infor);
-                                        CourseBean courseBean = new CourseBean();
-                                        courseBean.setcName(course_name);
-                                        courseBean.setcTeacher(course_teacher);
-                                        courseBean.setcPlace(course_place);
-                                        Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
-                                        courseBean.setcColor(isExists(courseBean.getcName()));
-                                        courseList.add(courseBean);
-                                    }else if((td1.get(0)+"").length() > 50){
-//                                Log.e("view",(td1.get(0) + "").substring(25,(td1.get(0)+"").length()));
-                                        String a = (td1.get(0) + "").substring(25,(td1.get(0)+"").length());
-                                        String[] b = a.split(">");
-                                        String[] c = b[1].split("<");
-                                        String course_name = c[0];
-                                        String[] d = b[3].split("<");
-                                        String course_teacher = "@"+ d[0];
-                                        String course_place = " ";
-                                        String infor = course_name+"\n"+course_teacher+"\n"+course_place;
-                                        Log.e("view66666666666666",infor);
-                                        CourseBean courseBean = new CourseBean();
-                                        courseBean.setcName(course_name);
-                                        courseBean.setcTeacher(course_teacher);
-                                        courseBean.setcPlace(course_place);
-                                        Log.e("current course=====",course_name+" "+course_teacher+" "+course_place);
-                                        courseBean.setcColor(isExists(courseBean.getcName()));
-                                        courseList.add(courseBean);
-                                    }else{
+                                    } else{
+
+                                        Log.e("courese content"+td1.get(0).toString().length()+":",td1.get(0).toString());
+
                                         CourseBean courseBean = new CourseBean();
                                         courseBean.setcName("");
                                         courseBean.setcTeacher("");
                                         courseBean.setcPlace("");
                                         courseList.add(courseBean);
                                     }
-
                                 }
                             }
                         }

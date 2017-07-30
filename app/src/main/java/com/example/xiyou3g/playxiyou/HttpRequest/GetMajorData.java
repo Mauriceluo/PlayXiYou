@@ -39,7 +39,7 @@ public class GetMajorData implements Runnable{
             public void run() {
                 getMajor();
             }
-        },3500);
+        },2000);
     }
 
     private void getMajorVIEWSTATE(){
@@ -116,7 +116,7 @@ public class GetMajorData implements Runnable{
                                     Log.e("majorbean",majorBean.getmNeedScore()+" "+majorBean.getmGetScore()+" "+majorBean.getmUngetScore()+" "+majorBean.getmWantScore());
                                 }
                             }
-                            Message message = new Message();
+                            Message message = Message.obtain();
                             message.what = 5;
                             handler.sendMessage(message);
                         }

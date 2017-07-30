@@ -1,6 +1,7 @@
 package com.example.xiyou3g.playxiyou.Activity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -81,6 +82,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+
         islogin = 0;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -252,8 +254,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     protected Response<String> parseNetworkResponse(NetworkResponse response) {
                         System.out.println(response.headers);
-                        Log.e("statusCode",response.statusCode+"   length="+response.headers.size());
-                        if(response.headers.size() == 13){
+                        Log.e("statusCode",response.statusCode+"   length="+response.data.length);
+                        if(response.data.length > 7000){
                             flag = 1;
                         }
                         return super.parseNetworkResponse(response);
@@ -269,57 +271,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH)+1;
         new Thread(new GetCourseData(year,month,1)).start();
-    }
-
-    private List<String> getVisState(final List<String> list) {
-        list.clear();
-        for(int i = 0;i< 8;i++){
-            String url = "http://222.24.62.120/pyjh.aspx?xh="+loginName+"&xm="+student_name+"&gnmkdm=N121607";
-            final String[] __viewstate = new String[1];
-            StringRequest stringRequest1 = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String s) {
-                    //repsone_content = s;
-                    Document document1 = Jsoup.parse(s);
-                    __viewstate[0] = document1.select("input[name=__VIEWSTATE]").val();
-                    try {
-                        __viewstate[0] = URLEncoder.encode(__viewstate[0],"GBK");
-                    } catch (UnsupportedEncodingException e) {
-                        Log.e("error","123456789");
-                    }
-                    Log.e("viewstate      ",__viewstate[0]);
-                    list.add(__viewstate[0]);
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError volleyError) {
-                    Log.e("failure",volleyError+"");
-                }
-            }){
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String,String> header = new HashMap<>();
-                    header.put("Cookie",cookies);
-                    header.put("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
-                    header.put("Referer","http://222.24.62.120/pyjh.aspx?xh="+loginName+"&xm="+student_name+"&gnmkdm=N121607");
-                    header.put("Accept-Encoding","gzip, deflate");
-                    header.put("Accept-Language", "zh-Hans-CN,zh-Hans,zh;q=0.8");
-                    header.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36");
-                    return header;
-                }
-
-            };
-            mqueue.add(stringRequest1);
-        }
-        return list;
-    }
-
-    private void getAllProject(List<String> list) {
-        for(int i =1;i<=8;i++){
-            List<ProjectBean> projectBeen = new ArrayList<>();
-            proList.add(projectBeen);
-            new Thread(new GetProjectData(i,list)).start();
-        }
     }
 
     @Override
