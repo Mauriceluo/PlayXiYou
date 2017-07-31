@@ -38,8 +38,11 @@
         <activity android:name=".Activity.AttendActivity"/>
         <activity android:name=".Activity.SiliuActivity"
             android:windowSoftInputMode="stateAlwaysVisible"/>
+<<<<<<< HEAD
 
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
+=======
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
     </application>
 
 

@@ -16,8 +16,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
+<<<<<<< HEAD
             android:orientation="horizontal"
             android:background="#fff">
+=======
+<<<<<<< HEAD
+            android:orientation="horizontal"
+            android:background="#fff">
+=======
+            android:orientation="horizontal">
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
 
             <TextView
                 android:id="@+id/score_time"
@@ -25,14 +34,34 @@
                 android:layout_weight="1"
                 android:layout_height="40dp"
                 android:textSize="18sp"
+<<<<<<< HEAD
                 android:gravity="center" />
+=======
+<<<<<<< HEAD
+                android:gravity="center" />
+=======
+                android:gravity="center"
+                android:background="#fff" />
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
 
             <ImageView
                 android:id="@+id/bttest"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+<<<<<<< HEAD
                 android:src="@mipmap/selectteam" />
+=======
+<<<<<<< HEAD
+                android:src="@mipmap/selectteam" />
+=======
+                android:src="@mipmap/selectteam"
+                android:background="#fff"/>
+
+        </LinearLayout>
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
 
         </LinearLayout>
 
