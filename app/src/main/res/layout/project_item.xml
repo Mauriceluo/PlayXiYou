@@ -22,6 +22,13 @@
                 android:layout_height="30dp"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/projectdan"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="18dp"/>
+
                 <TextView
                     android:id="@+id/courname"
                     android:layout_width="0dp"

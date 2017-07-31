@@ -75,16 +75,19 @@ public class APerFragment extends Fragment {
                 builder.setPositiveButton("继续", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        attenHandler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Log.e("exitsuccess","click");
-                                FragmentManager manager = getActivity().getSupportFragmentManager();
-                                FragmentTransaction transaction = manager.beginTransaction();
-                                transaction.replace(R.id.main_container,new AttendUnlogFragment());
-                                transaction.commit();
-                            }
-                        },500);
+//                        attenHandler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                Log.e("exitsuccess","click");
+//                                FragmentManager manager = getActivity().getSupportFragmentManager();
+//                                FragmentTransaction transaction = manager.beginTransaction();
+//                                transaction.replace(R.id.main_container,new AttendUnlogFragment());
+//                                transaction.commit();
+//                            }
+//                        },500);
+                        Intent intent = new Intent(getContext(),AttenLoginActivity.class);
+                        startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                        getActivity().finish();
                     }
                 }).create().show();
             }
