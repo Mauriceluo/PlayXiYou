@@ -1,6 +1,7 @@
 package com.example.xiyou3g.playxiyou.HttpRequest;
 
 import android.os.Message;
+import android.util.Base64;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -41,6 +42,7 @@ public class GetScoreData implements Runnable {
 
     private void get_Score(){
        synchronized (this){
+
            scoreBeanList.clear();
            final String[] __viewstate = new String[1];
            final String url = "http://222.24.62.120/xscjcx.aspx?xh="+loginName+"&xm="+student_name+"&gnmkdm=N121605";
@@ -100,7 +102,7 @@ public class GetScoreData implements Runnable {
                                scoreBeanList.add(scoreBean);
                                Log.e("chengji","--"+scoreBean.getsName()+"==="+scoreBean.getsChengji());
                            }
-                           Message message = new Message();
+                           Message message = Message.obtain();
                            message.what = UPDATE_SCORE;
                            handler.sendMessage(message);
                        }
@@ -131,7 +133,9 @@ public class GetScoreData implements Runnable {
                    };
                    mqueue.add(stringRequest);
                }
-           },800);
+           },500);
        }
     }
+
+
 }

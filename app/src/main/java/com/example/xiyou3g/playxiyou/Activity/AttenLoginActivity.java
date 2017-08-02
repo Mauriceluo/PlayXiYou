@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.transition.Slide;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -20,6 +24,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.xiyou3g.playxiyou.Adapter.HelpAdapter;
 import com.example.xiyou3g.playxiyou.AttendFragment.AttendLogFragment;
 import com.example.xiyou3g.playxiyou.HttpRequest.GetAttenLogin;
 import com.example.xiyou3g.playxiyou.HttpRequest.GetAttendCode;
@@ -34,6 +39,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -143,15 +150,15 @@ public class AttenLoginActivity extends AppCompatActivity implements View.OnClic
                                         editor.clear();
                                     }
                                     editor.apply();
-                                    Message message = new Message();
-                                    message.what = 11;
-                                    attenHandler.sendMessage(message);
+//                                    Message message = new Message();
+//                                    message.what = 11;
+//                                    attenHandler.sendMessage(message);
 
                                     handler.postDelayed(new Runnable() {
                                         @Override
                                         public void run() {
-//                                            Intent intent = new Intent(AttenLoginActivity.this,AttendActivity.class);
-//                                            startActivity(intent);
+                                            Intent intent = new Intent(AttenLoginActivity.this,AttendActivity.class);
+                                            startActivity(intent);
                                             finish();
                                         }
                                     },500);
@@ -199,6 +206,23 @@ public class AttenLoginActivity extends AppCompatActivity implements View.OnClic
 
                 break;
             case R.id.ahelp:
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+                View dialogView = LayoutInflater.from(this).inflate(R.layout.help_dialog,null);
+                RecyclerView recyclerView = (RecyclerView) dialogView.findViewById(R.id.help_recyc);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+                linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                List<String> helpList = new ArrayList<>();
+                String[] array = new String[]{"功能：教室情况查询、个人考勤情况查询、个人信息查询"
+                        ,"智慧教室官网：\nhttp://jwkq.xupt.edu.cn:8080/"
+                        ,"PS：因为智慧教室的数据在假期期间被清空了，所以小猿捕获不到数据，因此里面暂无内容显示，开学后将进一步跟进智慧教室的开发~"};
+                for(int i =0;i<array.length;i++){
+                    helpList.add(array[i]);
+                }
+                HelpAdapter helpAdapter = new HelpAdapter(helpList);
+                recyclerView.setAdapter(helpAdapter);
+                bottomSheetDialog.setContentView(dialogView);
+                bottomSheetDialog.show();
                 break;
             case R.id.acodeimage:
                 new Thread(new GetAttendCode(acodeImage)).start();
