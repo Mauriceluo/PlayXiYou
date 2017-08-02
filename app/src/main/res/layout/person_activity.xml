@@ -6,13 +6,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="120dp"
         android:background="@color/days">
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
             android:src="@mipmap/back"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="18dp"/>
@@ -42,7 +42,7 @@
 
             <ImageView
                 android:id="@+id/stusex"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"

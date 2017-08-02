@@ -79,7 +79,7 @@ public class EduFragment extends Fragment{
         tabLayout.addTab(tabLayout.newTab().setText(tabList.get(2)));
         tabLayout.addTab(tabLayout.newTab().setText(tabList.get(3)));
 
-        eduAdapter = new EduAdapter(getActivity().getSupportFragmentManager(),fragmentList,tabList);
+        eduAdapter = new EduAdapter(getChildFragmentManager(),fragmentList,tabList);
         viewPager.setAdapter(eduAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
