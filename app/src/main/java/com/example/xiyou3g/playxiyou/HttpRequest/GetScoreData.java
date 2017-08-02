@@ -133,7 +133,19 @@ public class GetScoreData implements Runnable {
                    };
                    mqueue.add(stringRequest);
                }
+<<<<<<< HEAD
            },500);
+=======
+<<<<<<< HEAD
+           },500);
+=======
+<<<<<<< HEAD
+           },500);
+=======
+           },1500);
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
        }
     }
 

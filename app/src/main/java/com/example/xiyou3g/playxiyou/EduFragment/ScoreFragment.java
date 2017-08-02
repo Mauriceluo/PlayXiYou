@@ -2,7 +2,18 @@ package com.example.xiyou3g.playxiyou.EduFragment;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+<<<<<<< HEAD
 import android.graphics.drawable.ColorDrawable;
+=======
+<<<<<<< HEAD
+import android.graphics.drawable.ColorDrawable;
+=======
+<<<<<<< HEAD
+import android.graphics.drawable.ColorDrawable;
+=======
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
 import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,7 +21,18 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
+<<<<<<< HEAD
 import android.support.v4.widget.SwipeRefreshLayout;
+=======
+<<<<<<< HEAD
+import android.support.v4.widget.SwipeRefreshLayout;
+=======
+<<<<<<< HEAD
+import android.support.v4.widget.SwipeRefreshLayout;
+=======
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,14 +43,61 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
 import com.example.xiyou3g.playxiyou.Adapter.ScoreAdapter;
 import com.example.xiyou3g.playxiyou.Adapter.ScoreTeamAdapter;
+import com.example.xiyou3g.playxiyou.DataBean.ProjectBean;
 import com.example.xiyou3g.playxiyou.DataBean.ScoreYearAndTeam;
+<<<<<<< HEAD
 import com.example.xiyou3g.playxiyou.HttpRequest.GetScoreData;
 import com.example.xiyou3g.playxiyou.R;
+=======
+<<<<<<< HEAD
+import com.example.xiyou3g.playxiyou.HttpRequest.GetScoreData;
+import com.example.xiyou3g.playxiyou.R;
+=======
+<<<<<<< HEAD
+import com.example.xiyou3g.playxiyou.HttpRequest.GetScoreData;
+import com.example.xiyou3g.playxiyou.R;
+=======
+import com.example.xiyou3g.playxiyou.HttpRequest.GetProjectData;
+import com.example.xiyou3g.playxiyou.HttpRequest.GetScoreData;
+import com.example.xiyou3g.playxiyou.R;
+<<<<<<< HEAD
+=======
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import static com.example.xiyou3g.playxiyou.Content.EduContent.*;
 
 /**
@@ -38,25 +107,73 @@ import static com.example.xiyou3g.playxiyou.Content.EduContent.*;
 
 public class ScoreFragment extends Fragment {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+//    private RecyclerView scoreTeamRecyc;
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
     private RecyclerView scoreRecyc;
     private TextView isData;
 
     private View view;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+//    private LinearLayoutManager linearLayoutManager1;
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
     private LinearLayoutManager linearLayoutManager2;
     private TextView current;
 
     private List<ScoreYearAndTeam> yearList;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+//    private ScoreTeamAdapter scoreTeamAdapter;
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
     private ScoreAdapter scoreAdapter;
 
     private ProgressDialog dialog;
 
     private ImageView bselect;
     private List<String> select;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
     private CoordinatorLayout main_layout;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private int isrefresh = 0;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+    private PopupWindow popupWindow;
+    private CoordinatorLayout main_layout;
+
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -141,10 +258,27 @@ public class ScoreFragment extends Fragment {
 
     private void initWight(View view) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+//        scoreTeamRecyc = (RecyclerView) view.findViewById(R.id.select_team_recycler);
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
         scoreRecyc = (RecyclerView) view.findViewById(R.id.score_recycler);
         current = (TextView) view.findViewById(R.id.score_time);
         isData = (TextView) view.findViewById(R.id.score_tv);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
         bselect = (ImageView) view.findViewById(R.id.bttest);
         main_layout = (CoordinatorLayout) view.findViewById(R.id.score_layout);
 
@@ -158,15 +292,59 @@ public class ScoreFragment extends Fragment {
             }
         });
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+        bselect = (ImageView) view.findViewById(R.id.bttest);
+        main_layout = (CoordinatorLayout) view.findViewById(R.id.score_layout);
+
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
         current.setText(currentScore);
 
         if(stuname.equals("null")){
             isData.setVisibility(View.VISIBLE);
         }else{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+//            linearLayoutManager1 = new LinearLayoutManager(getContext());
+//            linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+//            scoreTeamRecyc.setLayoutManager(linearLayoutManager1);
+
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
             linearLayoutManager2 = new LinearLayoutManager(getContext());
             linearLayoutManager2.setOrientation(LinearLayoutManager.VERTICAL);
             scoreRecyc.setLayoutManager(linearLayoutManager2);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+//            scoreTeamAdapter = new ScoreTeamAdapter(yearList);
+//            scoreTeamRecyc.setAdapter(scoreTeamAdapter);
+=======
+            scoreTeamAdapter = new ScoreTeamAdapter(yearList);
+            scoreTeamRecyc.setAdapter(scoreTeamAdapter);
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
             scoreAdapter = new ScoreAdapter(scoreBeanList);
             scoreRecyc.setAdapter(scoreAdapter);
 
@@ -177,6 +355,13 @@ public class ScoreFragment extends Fragment {
             bselect.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
                     if(popupWindow != null &&popupWindow.isShowing()){
                         popupWindow.dismiss();
                         popupWindow = null;
@@ -189,6 +374,18 @@ public class ScoreFragment extends Fragment {
                 swipeRefreshLayout.setRefreshing(false);
                 isrefresh = 0;
             }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+                    showPopupWindow();
+                }
+            });
+
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
         }
     }
 
@@ -203,9 +400,26 @@ public class ScoreFragment extends Fragment {
         popupWindow = new PopupWindow(main_layout, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setContentView(view);
         popupWindow.setFocusable(true);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
         popupWindow.setOutsideTouchable(true);
         popupWindow.setBackgroundDrawable(new ColorDrawable(0));
         popupWindow.showAsDropDown(bselect);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        popupWindow.showAsDropDown(bselect);
+    }
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
 }

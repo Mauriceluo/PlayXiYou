@@ -61,6 +61,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private FrameLayout frameLayout;
     private BottomNavigationBar bottomNavigationBar;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    private String Year;
+    private String Team;
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +88,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 ViewStatelist = getVisState(ViewStatelist);                   //获取培养计划的头_VISTSTE;
                 new Thread(new GetScoreData(Year,Team)).start();              //获取成绩信息;
             }
+<<<<<<< HEAD
         },1500);
+=======
+<<<<<<< HEAD
+        },1500);
+=======
+<<<<<<< HEAD
+        },500);
+=======
+        },1000);
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
 
     }
 
@@ -258,10 +281,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         }
         return super.onTouchEvent(event);
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         client.stop();
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
 }

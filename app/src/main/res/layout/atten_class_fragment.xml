@@ -26,7 +26,19 @@
                 android:textSize="20sp"
                 android:layout_gravity="center|left"
                 android:gravity="center"
+<<<<<<< HEAD
                 android:paddingLeft="16dp"/>
+=======
+<<<<<<< HEAD
+                android:paddingLeft="16dp"/>
+=======
+<<<<<<< HEAD
+                android:paddingLeft="16dp"/>
+=======
+                android:paddingLeft="18dp"/>
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
 
         </android.support.v7.widget.Toolbar>
 

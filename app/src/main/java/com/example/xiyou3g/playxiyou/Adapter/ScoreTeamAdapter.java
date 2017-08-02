@@ -46,7 +46,18 @@ public class ScoreTeamAdapter extends RecyclerView.Adapter<ScoreTeamAdapter.View
         holder.scard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 holder.scard.setBackgroundResource(R.color.colorAccent);
+=======
+<<<<<<< HEAD
+                holder.scard.setBackgroundResource(R.color.colorAccent);
+=======
+<<<<<<< HEAD
+                holder.scard.setBackgroundResource(R.color.colorAccent);
+=======
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
                 currentScore = year.getYear()+"   第"+year.getTeam()+"学期";
                 Message message = new Message();
                 message.what = 4;
@@ -54,11 +65,33 @@ public class ScoreTeamAdapter extends RecyclerView.Adapter<ScoreTeamAdapter.View
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
                         Year = year.getYear();
                         Team = year.getTeam();
                         new GetScoreData(year.getYear(),year.getTeam()).run();
                     }
                 },500);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+                        new GetScoreData(year.getYear(),year.getTeam()).run();
+                    }
+<<<<<<< HEAD
+                },500);
+=======
+                },2000);
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
             }
         });
 
