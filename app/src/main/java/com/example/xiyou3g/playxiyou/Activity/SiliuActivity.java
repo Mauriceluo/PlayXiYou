@@ -43,6 +43,7 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
 
     private TextInputLayout idWrapper;
     private TextInputLayout nameWrapper;
+<<<<<<< HEAD
 
     private ImageView back;
     private EditText id;
@@ -51,6 +52,40 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
     private Button find;
 
     private ImageView clear;
+=======
+<<<<<<< HEAD
+
+    private ImageView back;
+    private EditText id;
+    private EditText name;
+    private TextView figure;
+    private Button find;
+
+    private ImageView clear;
+=======
+
+    private ImageView back;
+    private EditText id;
+    private EditText name;
+    private TextView figure;
+    private Button find;
+<<<<<<< HEAD
+
+    private ImageView clear;
+=======
+<<<<<<< HEAD
+
+    private ImageView clear;
+=======
+<<<<<<< HEAD
+
+    private ImageView clear;
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,9 +107,36 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
         find = (Button) findViewById(R.id.siliu_find);
         figure = (TextView) findViewById(R.id.figure);
         back = (ImageView) findViewById(R.id.sback);
+<<<<<<< HEAD
         clear = (ImageView) findViewById(R.id.clear);
 
         clear.setOnClickListener(this);
+=======
+<<<<<<< HEAD
+        clear = (ImageView) findViewById(R.id.clear);
+
+        clear.setOnClickListener(this);
+=======
+<<<<<<< HEAD
+        clear = (ImageView) findViewById(R.id.clear);
+
+        clear.setOnClickListener(this);
+=======
+<<<<<<< HEAD
+        clear = (ImageView) findViewById(R.id.clear);
+
+        clear.setOnClickListener(this);
+=======
+<<<<<<< HEAD
+        clear = (ImageView) findViewById(R.id.clear);
+
+        clear.setOnClickListener(this);
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
 
         id.addTextChangedListener(new TextWatcher() {
             @Override
@@ -84,6 +146,19 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
                 if(s.length()>0){
                     clear.setVisibility(View.VISIBLE);
                     AlphaAnimation alphaAnimation = new AlphaAnimation(0,1.0f);
@@ -96,6 +171,20 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
                     clear.setVisibility(View.GONE);
                 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
                 if(idWrapper.getEditText().getText().length() != 15){
                     figure.setTextColor(Color.RED);
                 }else{
@@ -159,9 +248,36 @@ public class SiliuActivity extends AppCompatActivity implements View.OnClickList
             case R.id.sback:
                 finish();
                 break;
+<<<<<<< HEAD
             case R.id.clear:
                 id.setText("");
                 break;
+=======
+<<<<<<< HEAD
+            case R.id.clear:
+                id.setText("");
+                break;
+=======
+<<<<<<< HEAD
+            case R.id.clear:
+                id.setText("");
+                break;
+=======
+<<<<<<< HEAD
+            case R.id.clear:
+                id.setText("");
+                break;
+=======
+<<<<<<< HEAD
+            case R.id.clear:
+                id.setText("");
+                break;
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
 
         }
     }

@@ -3,8 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+<<<<<<< HEAD
     android:paddingLeft="6dp"
     android:paddingRight="6dp">
+=======
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
 
     <LinearLayout
         android:id="@+id/left_layout"
