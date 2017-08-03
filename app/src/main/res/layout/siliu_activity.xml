@@ -28,13 +28,66 @@
 
     </RelativeLayout>
 
+<<<<<<< HEAD
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+=======
+<<<<<<< HEAD
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+=======
+<<<<<<< HEAD
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+=======
+<<<<<<< HEAD
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+=======
+<<<<<<< HEAD
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+=======
+<<<<<<< HEAD
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+=======
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/idWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"
         android:layout_marginTop="64dp">
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
         <android.support.design.widget.TextInputLayout
             android:id="@+id/idWrapper"
             android:layout_width="match_parent"
@@ -64,6 +117,31 @@
 
     </RelativeLayout>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        <EditText
+            android:id="@+id/ailiu_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="请输入15位准考证号：" />
+
+    </android.support.design.widget.TextInputLayout>
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
 
     <TextView
         android:id="@+id/figure"

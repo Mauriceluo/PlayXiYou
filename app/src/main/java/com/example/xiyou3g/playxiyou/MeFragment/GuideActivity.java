@@ -75,6 +75,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.guidesend:
                 String send = guideContent.getText().toString();
+<<<<<<< HEAD
                 if(!send.equals("")){
                     GuideBean guideBean = new GuideBean();
                     guideBean.setGuideMsg(send);
@@ -92,6 +93,22 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                     guideContent.setText("");
 
                 }
+=======
+                GuideBean guideBean = new GuideBean();
+                guideBean.setGuideMsg(send);
+                guideBean.setType(SEND_TYPE);
+                guideBeanList.add(guideBean);
+                GuideBean guideBean1 = new GuideBean();
+                guideBean1.setGuideMsg(XiyouGuide.getResult(send));
+                guideBean1.setType(RECIVE_TYPE);
+                guideBeanList.add(guideBean1);
+//                Message message = new Message();
+//                message.what = 1;
+//                mhandler.sendMessage(message);
+                guideAdapter = new GuideAdapter(guideBeanList);
+                guideRecyc.setAdapter(guideAdapter);
+                guideContent.setText("");
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
                 break;
         }
     }
