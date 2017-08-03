@@ -39,19 +39,26 @@ public class ScoreTeamAdapter extends RecyclerView.Adapter<ScoreTeamAdapter.View
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        final ScoreYearAndTeam year = years.get(position);
+        final ScoreYearAndTeam year = years.get(years.size()-1-position);
         Log.e("YearAndTeam length",year.getYear()+"   "+year.getTeam());
         holder.syear.setText(year.getYear());
         holder.steam.setText(year.getTeam());
         holder.scard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.scard.setBackgroundColor(Color.CYAN);
+                holder.scard.setBackgroundResource(R.color.colorAccent);
                 currentScore = year.getYear()+"   第"+year.getTeam()+"学期";
                 Message message = new Message();
                 message.what = 4;
                 handler.sendMessage(message);
-                new GetScoreData(year.getYear(),year.getTeam()).run();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Year = year.getYear();
+                        Team = year.getTeam();
+                        new GetScoreData(year.getYear(),year.getTeam()).run();
+                    }
+                },500);
             }
         });
 
