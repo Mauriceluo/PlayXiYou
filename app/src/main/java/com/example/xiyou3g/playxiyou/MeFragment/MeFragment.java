@@ -12,12 +12,58 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+<<<<<<< HEAD
+import android.util.Log;
+=======
+<<<<<<< HEAD
+import android.util.Log;
+=======
+<<<<<<< HEAD
+import android.util.Log;
+=======
+<<<<<<< HEAD
+import android.util.Log;
+=======
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+<<<<<<< HEAD
 import android.widget.ImageView;
+=======
+<<<<<<< HEAD
+import android.widget.ImageView;
+=======
+<<<<<<< HEAD
+import android.widget.ImageView;
+=======
+<<<<<<< HEAD
+import android.widget.ImageView;
+=======
+<<<<<<< HEAD
+import android.widget.ImageView;
+=======
+<<<<<<< HEAD
+import android.widget.ImageView;
+=======
+<<<<<<< HEAD
+import android.widget.ImageView;
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -38,7 +84,34 @@ import com.example.xiyou3g.playxiyou.Activity.MainActivity;
 import com.example.xiyou3g.playxiyou.Activity.PersInfoActivity;
 import com.example.xiyou3g.playxiyou.Activity.SiliuActivity;
 import com.example.xiyou3g.playxiyou.Adapter.HelpAdapter;
+<<<<<<< HEAD
 import com.example.xiyou3g.playxiyou.Adapter.QueAdpater;
+=======
+<<<<<<< HEAD
+import com.example.xiyou3g.playxiyou.Adapter.QueAdpater;
+=======
+<<<<<<< HEAD
+import com.example.xiyou3g.playxiyou.Adapter.QueAdpater;
+=======
+<<<<<<< HEAD
+import com.example.xiyou3g.playxiyou.Adapter.QueAdpater;
+=======
+<<<<<<< HEAD
+import com.example.xiyou3g.playxiyou.Adapter.QueAdpater;
+=======
+<<<<<<< HEAD
+import com.example.xiyou3g.playxiyou.Adapter.QueAdpater;
+=======
+<<<<<<< HEAD
+import com.example.xiyou3g.playxiyou.Adapter.QueAdpater;
+=======
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 import com.example.xiyou3g.playxiyou.EduFragment.EduFragment;
 import com.example.xiyou3g.playxiyou.MyView.RoundImageView;
 import com.example.xiyou3g.playxiyou.R;
@@ -62,7 +135,18 @@ public class MeFragment extends Fragment implements View.OnClickListener{
 
     private TextView stuinfo;
     private TextView siliu;
+<<<<<<< HEAD
     private TextView place;
+=======
+<<<<<<< HEAD
+    private TextView place;
+=======
+<<<<<<< HEAD
+    private TextView place;
+=======
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
     private TextView help;
     private TextView question;
     private TextView about;
@@ -93,7 +177,23 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     }
 
     private static void navigateTo(BDLocation location) {
+<<<<<<< HEAD
         if(isFirst ||isLoc|| count<2){
+=======
+<<<<<<< HEAD
+        if(isFirst ||isLoc|| count<2){
+=======
+<<<<<<< HEAD
+        if(isFirst ||isLoc|| count<2){
+=======
+<<<<<<< HEAD
+        if(isFirst ||isLoc|| count<2){
+=======
+        if(isFirst ||isLoc|| count<3){
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
             LatLng ll = new LatLng(location.getLatitude(),location.getLongitude());
             Log.e("location",location.getLatitude()+"   "+location.getLongitude());
             MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(ll);
@@ -122,6 +222,7 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     private void requestLocation() {
         initLocation();
         client.start();
+<<<<<<< HEAD
     }
 
     private void initLocation() {
@@ -138,6 +239,31 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         baiduMap.setMyLocationEnabled(false);
     }
 
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+    }
+
+    private void initLocation() {
+        LocationClientOption option = new LocationClientOption();
+        option.setScanSpan(5000);
+        option.setIsNeedAddress(true);
+        client.setLocOption(option);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+//        mapView.onDestroy();
+        baiduMap.setMyLocationEnabled(false);
+<<<<<<< HEAD
+    }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -145,6 +271,44 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
+=======
+<<<<<<< HEAD
+    }
+
+=======
+    }
+
+=======
+    }
+
+    private void initLocation() {
+        LocationClientOption option = new LocationClientOption();
+        option.setScanSpan(2000);
+        option.setIsNeedAddress(true);
+        client.setLocOption(option);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+//        mapView.onDestroy();
+        baiduMap.setMyLocationEnabled(false);
+    }
+
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapView.onPause();
+    }
+
+    @Override
+<<<<<<< HEAD
+=======
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
     public void onResume() {
         super.onResume();
         mapView.onResume();
@@ -166,17 +330,57 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         stuNum = (TextView) view.findViewById(R.id.stunum);
         stuinfo = (TextView) view.findViewById(R.id.stuinfo);
         siliu = (TextView) view.findViewById(R.id.siliu);
+<<<<<<< HEAD
         place = (TextView) view.findViewById(R.id.place);
+=======
+<<<<<<< HEAD
+        place = (TextView) view.findViewById(R.id.place);
+=======
+<<<<<<< HEAD
+        place = (TextView) view.findViewById(R.id.place);
+=======
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
         help = (TextView) view.findViewById(R.id.help);
         question = (TextView) view.findViewById(R.id.question);
         about = (TextView) view.findViewById(R.id.about);
         exit = (TextView) view.findViewById(R.id.exit);
         logo = (RoundImageView) view.findViewById(R.id.logo);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
         mapView = (MapView) view.findViewById(R.id.map);
         mapView.setLogoPosition(LogoPosition.logoPostionRightBottom);
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        stuName.setText(stuclass);
+        stuNum.setText(stuname);
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 
         stuName.setText(stuclass);
         stuNum.setText(stuname);
@@ -184,7 +388,18 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         logo.setOnClickListener(this);
         stuinfo.setOnClickListener(this);
         siliu.setOnClickListener(this);
+<<<<<<< HEAD
         place.setOnClickListener(this);
+=======
+<<<<<<< HEAD
+        place.setOnClickListener(this);
+=======
+<<<<<<< HEAD
+        place.setOnClickListener(this);
+=======
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
         help.setOnClickListener(this);
         question.setOnClickListener(this);
         about.setOnClickListener(this);
@@ -237,7 +452,38 @@ public class MeFragment extends Fragment implements View.OnClickListener{
             case R.id.siliu:
                 Intent intent1 = new Intent(getContext(), SiliuActivity.class);
                 startActivity(intent1,ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+<<<<<<< HEAD
                 break;
+=======
+<<<<<<< HEAD
+                break;
+=======
+<<<<<<< HEAD
+                break;
+=======
+<<<<<<< HEAD
+                break;
+=======
+<<<<<<< HEAD
+                break;
+=======
+<<<<<<< HEAD
+                break;
+=======
+                break;
+<<<<<<< HEAD
+=======
+            case R.id.siliu:
+                Intent intent1 = new Intent(getContext(), SiliuActivity.class);
+                startActivity(intent1,ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                break;
+>>>>>>> 9afaf5bf4b739f4a9965d1dfc1541ef4848df079
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
             case R.id.help:
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext());
                 View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.help_dialog,null);

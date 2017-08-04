@@ -1,7 +1,10 @@
 package com.example.xiyou3g.playxiyou.Activity;
 
 import android.Manifest;
+<<<<<<< HEAD
 import android.app.ActivityOptions;
+=======
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -259,7 +262,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    initCodeImage();
+//                                    initCodeImage();
                                 }
                             }).create().show();
                         }

@@ -61,6 +61,26 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private FrameLayout frameLayout;
     private BottomNavigationBar bottomNavigationBar;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    private String Year;
+    private String Team;
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +97,31 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 ViewStatelist = getVisState(ViewStatelist);                   //获取培养计划的头_VISTSTE;
                 new Thread(new GetScoreData(Year,Team)).start();              //获取成绩信息;
             }
+<<<<<<< HEAD
         },1500);
+=======
+<<<<<<< HEAD
+        },1500);
+=======
+<<<<<<< HEAD
+        },1500);
+=======
+<<<<<<< HEAD
+        },1500);
+=======
+<<<<<<< HEAD
+        },1500);
+=======
+<<<<<<< HEAD
+        },500);
+=======
+        },1000);
+>>>>>>> 2c1a4be3a78d1876fd68ac22c2153d1970d458de
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 
     }
 
@@ -199,6 +243,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
 //                replaceFragment(new SportFragment());
 //                break;
             case 1:
+<<<<<<< HEAD
+=======
+                replaceFragment(new SportFragment());
+                break;
+            case 2:
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 //                if(islogin == 0){
                     replaceFragment(new AttendUnlogFragment());
 //                }else{
@@ -258,10 +308,37 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         }
         return super.onTouchEvent(event);
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         client.stop();
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 }

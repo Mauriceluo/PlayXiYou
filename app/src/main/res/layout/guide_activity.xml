@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+<<<<<<< HEAD
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -26,6 +27,16 @@
             android:gravity="center"/>
 
     </RelativeLayout>
+=======
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="东区教室导航"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:background="@color/days"
+        android:gravity="center"/>
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/guiderecycler"

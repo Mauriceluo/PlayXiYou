@@ -38,9 +38,34 @@
         <activity android:name=".Activity.AttendActivity"/>
         <activity android:name=".Activity.SiliuActivity"
             android:windowSoftInputMode="stateAlwaysVisible"/>
+<<<<<<< HEAD
         <activity android:name=".MeFragment.GuideActivity"/>
 
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
+=======
+<<<<<<< HEAD
+        <activity android:name=".MeFragment.GuideActivity"/>
+
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
+=======
+<<<<<<< HEAD
+        <activity android:name=".MeFragment.GuideActivity"/>
+
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
+=======
+<<<<<<< HEAD
+
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
+=======
+<<<<<<< HEAD
+
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service>
+=======
+>>>>>>> f3a7b3d83889c41bd6151331b5442e4d96cdfcd2
+>>>>>>> dc73a1145aa1a599cdab9b04d440f49715b04dd5
+>>>>>>> e9a8a41fee9b6ad02f284ae5331fa83531f9737f
+>>>>>>> 2913b9ccda47fc292b3b20269036ef5eb0c45463
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
     </application>
 
 

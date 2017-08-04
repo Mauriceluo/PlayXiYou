@@ -184,6 +184,7 @@
         </LinearLayout>
 
 
+<<<<<<< HEAD
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -215,6 +216,18 @@
                 android:layout_alignParentEnd="true"/>
 
         </RelativeLayout>
+=======
+        <Button
+            android:id="@+id/login"
+            android:layout_marginTop="20dp"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/loginbuttonback"
+            android:text="登录"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:layout_gravity="center"/>
+>>>>>>> cc9c9212212d6bce897d33a34ea97072735ea660
 
     </LinearLayout>
 
