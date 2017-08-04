@@ -1,21 +1,30 @@
 package com.example.xiyou3g.playxiyou.Activity;
 
+import android.Manifest;
+import android.app.ActivityOptions;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.CheckResult;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -36,6 +45,7 @@ import com.example.xiyou3g.playxiyou.DataBean.ProjectBean;
 import com.example.xiyou3g.playxiyou.HttpRequest.GetCourseData;
 import com.example.xiyou3g.playxiyou.HttpRequest.GetPerInfo;
 import com.example.xiyou3g.playxiyou.HttpRequest.GetProjectData;
+import com.example.xiyou3g.playxiyou.MeFragment.GuideActivity;
 import com.example.xiyou3g.playxiyou.R;
 
 
@@ -68,6 +78,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ImageView passSee;
     private ImageView codeImage;
     private Button login;
+    private Button tools;
 
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
@@ -81,12 +92,43 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+
         islogin = 0;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         mqueue = Volley.newRequestQueue(this);
         pref = PreferenceManager.getDefaultSharedPreferences(this);
         initWight();                    //实例化控件;
+
+        List<String> permissionList = new ArrayList<>();
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+            permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE)!= PackageManager.PERMISSION_GRANTED){
+            permissionList.add(Manifest.permission.READ_PHONE_STATE);
+        }
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+            permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        if(!permissionList.isEmpty()){
+            String[] permissions = permissionList.toArray(new String[permissionList.size()]);
+            ActivityCompat.requestPermissions(this,permissions,1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case 1:
+                if(grantResults.length > 0){
+                    for(int result: grantResults){
+                        if(result != PackageManager.PERMISSION_GRANTED){
+                            isAllRequest = 0;
+                            Snackbar.make(login,"有些功能可能显示不了！",Snackbar.LENGTH_SHORT).setAction("好的",null).show();
+                        }
+                    }
+                }
+        }
     }
 
     private void initWight() {
@@ -97,6 +139,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         passSee = (ImageView) findViewById(R.id.passSee);
         codeImage = (ImageView) findViewById(R.id.codeCheck);
         login = (Button) findViewById(R.id.login);
+        tools = (Button) findViewById(R.id.tools);
         codeCheck.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
         remberPass = (CheckBox) findViewById(R.id.remember_pass);
 
@@ -111,6 +154,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         userClear.setOnClickListener(this);
         passSee.setOnClickListener(this);
         login.setOnClickListener(this);
+        tools.setOnClickListener(this);
         codeImage.setOnClickListener(this);
     }
 
@@ -252,14 +296,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     protected Response<String> parseNetworkResponse(NetworkResponse response) {
                         System.out.println(response.headers);
-                        Log.e("statusCode",response.statusCode+"   length="+response.headers.size());
-                        if(response.headers.size() == 13){
+                        Log.e("statusCode",response.statusCode+"   length="+response.data.length);
+                        if(response.data.length > 7000){
                             flag = 1;
                         }
                         return super.parseNetworkResponse(response);
                     }
                 };
                 mqueue.add(request);
+                break;
+            case R.id.tools:
+                PopupMenu popupMenu = new PopupMenu(this,tools);
+                popupMenu.getMenuInflater().inflate(R.menu.login_tools,popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.siliu:
+                                Intent intent1 = new Intent(LoginActivity.this, SiliuActivity.class);
+                                startActivity(intent1, ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this).toBundle());
+                                break;
+                            case R.id.guide:
+                                Intent intent = new Intent(LoginActivity.this,GuideActivity.class);
+                                startActivity(intent);
+                                break;
+                        }
+                        return true;
+                    }
+                });
+                popupMenu.show();
                 break;
         }
     }
@@ -269,57 +334,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH)+1;
         new Thread(new GetCourseData(year,month,1)).start();
-    }
-
-    private List<String> getVisState(final List<String> list) {
-        list.clear();
-        for(int i = 0;i< 8;i++){
-            String url = "http://222.24.62.120/pyjh.aspx?xh="+loginName+"&xm="+student_name+"&gnmkdm=N121607";
-            final String[] __viewstate = new String[1];
-            StringRequest stringRequest1 = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String s) {
-                    //repsone_content = s;
-                    Document document1 = Jsoup.parse(s);
-                    __viewstate[0] = document1.select("input[name=__VIEWSTATE]").val();
-                    try {
-                        __viewstate[0] = URLEncoder.encode(__viewstate[0],"GBK");
-                    } catch (UnsupportedEncodingException e) {
-                        Log.e("error","123456789");
-                    }
-                    Log.e("viewstate      ",__viewstate[0]);
-                    list.add(__viewstate[0]);
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError volleyError) {
-                    Log.e("failure",volleyError+"");
-                }
-            }){
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String,String> header = new HashMap<>();
-                    header.put("Cookie",cookies);
-                    header.put("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
-                    header.put("Referer","http://222.24.62.120/pyjh.aspx?xh="+loginName+"&xm="+student_name+"&gnmkdm=N121607");
-                    header.put("Accept-Encoding","gzip, deflate");
-                    header.put("Accept-Language", "zh-Hans-CN,zh-Hans,zh;q=0.8");
-                    header.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36");
-                    return header;
-                }
-
-            };
-            mqueue.add(stringRequest1);
-        }
-        return list;
-    }
-
-    private void getAllProject(List<String> list) {
-        for(int i =1;i<=8;i++){
-            List<ProjectBean> projectBeen = new ArrayList<>();
-            proList.add(projectBeen);
-            new Thread(new GetProjectData(i,list)).start();
-        }
     }
 
     @Override

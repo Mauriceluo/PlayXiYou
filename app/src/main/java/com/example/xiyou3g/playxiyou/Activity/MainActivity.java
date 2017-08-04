@@ -11,6 +11,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.android.volley.AuthFailureError;
@@ -20,6 +22,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.baidu.location.LocationClient;
+import com.baidu.mapapi.SDKInitializer;
 import com.example.xiyou3g.playxiyou.AttendFragment.AttendLogFragment;
 import com.example.xiyou3g.playxiyou.AttendFragment.AttendUnlogFragment;
 import com.example.xiyou3g.playxiyou.DataBean.ProjectBean;
@@ -57,52 +61,29 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private FrameLayout frameLayout;
     private BottomNavigationBar bottomNavigationBar;
 
-    private String sYear;
-    private String sTeam;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        client = new LocationClient(getApplicationContext());
+        client.registerLocationListener(new MeFragment.MyLocationListener());
+        SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.main_activity);
         initWight();
 
-        List<String> list = new ArrayList<>();
-        list = getVisState(list);                   //获取培养计划的头_VISTSTE;
-        getAllProject(list);                        //获取全部培养计划信息;
-
+        getCurrentYearAndTeam();                                              //获取当前的学年与学期;
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                getCurrentYearAndTeam();                    //获取当前的学年与学期;
-                new Thread(new GetScoreData(sYear,sTeam)).start();  //获取成绩信息;
+                ViewStatelist = getVisState(ViewStatelist);                   //获取培养计划的头_VISTSTE;
+                new Thread(new GetScoreData(Year,Team)).start();              //获取成绩信息;
             }
-        },500);
-    }
+        },1500);
 
-    private void getCurrentYearAndTeam() {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH)+1;
-        int team;
-        int startYear;
-        int endYear;
-        if(month >= 7){
-            startYear = year -1;
-            endYear = year;
-            team = 2;
-        }else{
-            startYear = year -1;
-            endYear = year;
-            team = 1;
-        }
-        sYear = startYear+"-"+endYear;
-        sTeam = team+"";
-        currentScore = sYear+"   第"+sTeam+"学期";
     }
 
     private List<String> getVisState(final List<String> list) {
         list.clear();
-        for(int i = 0;i< 8;i++){
+        for(int i = 0;i<2;i++){
             String url = "http://222.24.62.120/pyjh.aspx?xh="+loginName+"&xm="+student_name+"&gnmkdm=N121607";
             final String[] __viewstate = new String[1];
             StringRequest stringRequest1 = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -143,12 +124,25 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         return list;
     }
 
-    private void getAllProject(List<String> list) {
-        for(int i =1;i<=8;i++){
-            List<ProjectBean> projectBeen = new ArrayList<>();
-            proList.add(projectBeen);
-            new Thread(new GetProjectData(i,list)).start();
+    private void getCurrentYearAndTeam() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH)+1;
+        int team;
+        int startYear;
+        int endYear;
+        if(month >= 7){
+            startYear = year -1;
+            endYear = year;
+            team = 2;
+        }else{
+            startYear = year -1;
+            endYear = year;
+            team = 1;
         }
+        Year = startYear+"-"+endYear;
+        Team = team+"";
+        currentScore = Year+"   第"+Team+"学期";
     }
 
     private void getCurrentCourse() {
@@ -170,13 +164,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         frameLayout = (FrameLayout) findViewById(R.id.main_container);
         bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.main_bottom);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.jiaowu,"教务处"))
-                .addItem(new BottomNavigationItem(R.mipmap.tiyu,"体育部"))
+//                .addItem(new BottomNavigationItem(R.mipmap.tiyu,"体育部"))
                 .addItem(new BottomNavigationItem(R.mipmap.kaoqin,"智慧考勤"))
                 .addItem(new BottomNavigationItem(R.mipmap.me,"个人信息"))
                 .setFirstSelectedPosition(0)
                 .setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationBar.initialise();
-        bottomNavigationBar.setPadding(10,2,2,2);
+        bottomNavigationBar.setPadding(0,10,0,0);
         bottomNavigationBar.setTabSelectedListener(this);
         replaceFragment(new EduFragment());
     }
@@ -188,23 +182,30 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         transaction.commit();
     }
 
+    public void addFragment(final Fragment fragment){
+        fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.main_container,fragment);
+        transaction.commit();
+    }
+
     @Override
     public void onTabSelected(int position) {
         switch (position){
             case 0:
                 replaceFragment(new EduFragment());
                 break;
+//            case 1:
+//                replaceFragment(new SportFragment());
+//                break;
             case 1:
-                replaceFragment(new SportFragment());
+//                if(islogin == 0){
+                    replaceFragment(new AttendUnlogFragment());
+//                }else{
+//                    replaceFragment(new AttendLogFragment());
+//                }
                 break;
             case 2:
-                if(islogin == 0){
-                    replaceFragment(new AttendUnlogFragment());
-                }else{
-                    replaceFragment(new AttendLogFragment());
-                }
-                break;
-            case 3:
                 replaceFragment(new MeFragment());
                 break;
         }
@@ -245,5 +246,22 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         }else{
             finish();
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.e("onTouch","touch1");
+        if(popupWindow != null && popupWindow.isShowing()){
+            Log.e("onTouch","touch2");
+            popupWindow.dismiss();
+            popupWindow = null;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        client.stop();
     }
 }

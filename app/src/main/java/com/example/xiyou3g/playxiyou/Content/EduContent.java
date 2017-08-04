@@ -4,8 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
+import android.widget.PopupWindow;
 
 import com.android.volley.RequestQueue;
+import com.baidu.location.LocationClient;
 import com.example.xiyou3g.playxiyou.DataBean.CourseBean;
 import com.example.xiyou3g.playxiyou.DataBean.MajorBean;
 import com.example.xiyou3g.playxiyou.DataBean.ProjectBean;
@@ -21,6 +23,9 @@ import java.util.Map;
  */
 
 public class EduContent {
+
+    static public int isAllRequest = 1;
+    static public  LocationClient client;
 
     static public int UPDATE_COURSE = 1;
     static public int UPDATE_SCORE = 2;
@@ -48,8 +53,13 @@ public class EduContent {
     static public String stuYear;       //入学年份;
     static public String stuSex;        //性别;
 
+    static public String Year;
+    static public String Team;
+    static public PopupWindow popupWindow;
+
     static public FragmentManager fragmentManager;
 
     static public List<List<ProjectBean>> proList = new ArrayList<>();
     static public List<MajorBean> majorBeanList = new ArrayList<>();
+    static public List<String> ViewStatelist = new ArrayList<>();
 }
